@@ -8,14 +8,15 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-surround'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'godlygeek/tabular'
-Bundle 'jlanzarotta/bufexplorer'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'godlygeek/tabular'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'jelera/vim-javascript-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -104,6 +105,10 @@ syntax enable
 
 colorscheme desert
 set background=dark
+
+" Set cursor line 
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -431,3 +436,5 @@ nmap <leader>nf :NERDTreeFind<cr>
 " let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
 let g:DoxygenToolkit_authorName="Jin"
 " let g:DoxygenToolkit_licenseTag="My own license";
+
+au FileType javascript call JavaScriptFold()
