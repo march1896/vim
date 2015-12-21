@@ -16,7 +16,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'jlanzarotta/bufexplorer'
+" Plugin 'jlanzarotta/bufexplorer'
+Plugin 'https://github.com/march1896/bufexplorer.git'
 Plugin 'jelera/vim-javascript-syntax'
 
 " All of your Plugins must be added before the following line
