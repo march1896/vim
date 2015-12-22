@@ -17,6 +17,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 " Plugin 'jlanzarotta/bufexplorer'
+Plugin 'rking/ag.vim'
 Plugin 'https://github.com/march1896/bufexplorer.git'
 Plugin 'jelera/vim-javascript-syntax'
 
@@ -439,4 +440,7 @@ nmap <leader>nf :NERDTreeFind<cr>
 let g:DoxygenToolkit_authorName="Jin"
 " let g:DoxygenToolkit_licenseTag="My own license";
 
-au FileType javascript call JavaScriptFold()
+" CtrlP root folder
+let g:ctrlp_root_markers = ['tags']
+
+" au FileType javascript call JavaScriptFold()
