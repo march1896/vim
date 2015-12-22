@@ -422,9 +422,12 @@ map <Leader>j !python -m json.tool<CR>
 map <leader>tb :TagbarToggle<cr>
 
 " => NERD Tree
-let g:NERDTreeWinPos="left"
-let g:NERDTreeWinSize=40
-let g:NERDTreeShowBookmarks=1
+"let g:NERDTreeWinPos="left"
+"let g:NERDTreeWinSize=40
+"let g:NERDTreeShowBookmarks=1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 nmap <leader>nt :NERDTree<cr>
 nmap <leader>nf :NERDTreeFind<cr>
 
@@ -445,3 +448,5 @@ let g:ctrlp_root_markers = ['tags']
 " pymode 
 let g:pymode_indent = 0
 let g:pymode_folding = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe']

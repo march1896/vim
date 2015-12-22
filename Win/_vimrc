@@ -10,13 +10,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'jlanzarotta/bufexplorer'
+Plugin 'rking/ag.vim'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'bling/vim-airline'
+" Plugin 'klen/python-mode'
+
+" Plugin 'jlanzarotta/bufexplorer'
+Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -239,7 +245,7 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
-" Format the status line
+" Format the status line # use airline plugin instead.
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
@@ -405,8 +411,9 @@ function! GotoJump()
     endif
   endif
 endfunction
-nmap <Leader>j :call GotoJump()<CR>
 
+" Format json
+map <Leader>j !python -m json.tool<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin mappings
@@ -415,9 +422,12 @@ nmap <Leader>j :call GotoJump()<CR>
 map <leader>tb :TagbarToggle<cr>
 
 " => NERD Tree
-let g:NERDTreeWinPos="left"
-let g:NERDTreeWinSize=40
-let g:NERDTreeShowBookmarks=1
+"let g:NERDTreeWinPos="left"
+"let g:NERDTreeWinSize=40
+"let g:NERDTreeShowBookmarks=1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 nmap <leader>nt :NERDTree<cr>
 nmap <leader>nf :NERDTreeFind<cr>
 
@@ -430,4 +440,13 @@ nmap <leader>nf :NERDTreeFind<cr>
 let g:DoxygenToolkit_authorName="Jin"
 " let g:DoxygenToolkit_licenseTag="My own license";
 
-au FileType javascript call JavaScriptFold()
+" CtrlP root folder
+let g:ctrlp_root_markers = ['tags']
+
+" au FileType javascript call JavaScriptFold()
+
+" pymode 
+let g:pymode_indent = 0
+let g:pymode_folding = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
