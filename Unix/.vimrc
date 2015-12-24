@@ -415,8 +415,9 @@ function! GotoJump()
     endif
   endif
 endfunction
-nmap <Leader>j :call GotoJump()<CR>
 
+" Format json
+nmap <Leader>j !python -m json.tool<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin mappings
