@@ -412,6 +412,9 @@ function! GotoJump()
   endif
 endfunction
 
+" No autoformating when paste
+set pastetoggle=<F2>
+
 " Format json
 map <Leader>j !python -m json.tool<CR>
 
@@ -449,4 +452,4 @@ let g:ctrlp_root_markers = ['tags']
 let g:pymode_indent = 0
 let g:pymode_folding = 1
 " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
