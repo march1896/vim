@@ -17,6 +17,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'bling/vim-airline'
 
 Plugin 'jlanzarotta/bufexplorer'
 " Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
@@ -417,7 +418,7 @@ function! GotoJump()
 endfunction
 
 " Format json
-nmap <Leader>j !python -m json.tool<CR>
+map <Leader>j !python -m json.tool<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin mappings
