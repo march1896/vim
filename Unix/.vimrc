@@ -20,6 +20,7 @@ Plugin 'rking/ag.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
+Plugin 'tpope/vim-fugitive'
 
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
