@@ -19,6 +19,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
+Plugin 'klen/python-mode'
 
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
@@ -440,3 +441,7 @@ let g:DoxygenToolkit_authorName="Jin"
 let g:ctrlp_root_markers = ['tags']
 
 " au FileType javascript call JavaScriptFold()
+
+" pymode 
+let g:pymode_indent = 0
+let g:pymode_folding = 1
