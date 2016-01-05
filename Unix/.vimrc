@@ -77,7 +77,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -114,9 +114,10 @@ syntax enable
 colorscheme desert
 set background=dark
 
-" Set cursor line 
+" Set cursor line
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
+hi LineNr ctermfg=grey
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -128,7 +129,7 @@ if has("gui_running")
 
   set guioptions+=e
 
-  " Set cursor line 
+  " Set cursor line
   set cursorline
   highlight CursorLine guibg=Grey20
 
@@ -436,11 +437,11 @@ nmap <leader>nt :NERDTree<cr>
 nmap <leader>nf :NERDTreeFind<cr>
 
 " => DoxygenToolkit
-" let g:DoxygenToolkit_briefTag_pre="@Synopsis  " 
-" let g:DoxygenToolkit_paramTag_pre="@param " 
-" let g:DoxygenToolkit_returnTag="@returns   " 
-" let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
-" let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
+" let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+" let g:DoxygenToolkit_paramTag_pre="@param "
+" let g:DoxygenToolkit_returnTag="@returns   "
+" let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+" let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
 let g:DoxygenToolkit_authorName="Jin"
 " let g:DoxygenToolkit_licenseTag="My own license";
 
@@ -449,7 +450,7 @@ let g:ctrlp_root_markers = ['tags']
 
 " au FileType javascript call JavaScriptFold()
 
-" pymode 
+" pymode
 let g:pymode_indent = 0
 let g:pymode_folding = 1
 " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
