@@ -450,7 +450,15 @@ let g:ctrlp_root_markers = ['tags']
 " au FileType javascript call JavaScriptFold()
 
 " pymode 
-let g:pymode_indent = 0
+let g:pymode = 1
 let g:pymode_folding = 1
 " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+let g:pymode_doc = 0
+" TODO: HACK
+" let g:pymode_indent = 0
+" change ~/.vim/bundle/pymode/after/indent/python.vim
+" tabstop=4
+" softtabstop=4
+" shiftwidth=4
+" to 2
