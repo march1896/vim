@@ -21,6 +21,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
 
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
@@ -436,15 +437,6 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 nmap <leader>nt :NERDTree<cr>
 nmap <leader>nf :NERDTreeFind<cr>
 
-" => DoxygenToolkit
-" let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-" let g:DoxygenToolkit_paramTag_pre="@param "
-" let g:DoxygenToolkit_returnTag="@returns   "
-" let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-" let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="Jin"
-" let g:DoxygenToolkit_licenseTag="My own license";
-
 " CtrlP root folder
 let g:ctrlp_root_markers = ['tags']
 
@@ -456,6 +448,7 @@ let g:pymode_indent = 0
 let g:pymode_folding = 1
 " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+
 let g:pymode_doc = 0
 " TODO: HACK
 " let g:pymode_indent = 0
