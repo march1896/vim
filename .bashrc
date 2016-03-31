@@ -20,5 +20,3 @@ export KBLD=~/code/k2bld/
 
 export http_proxy=http://192.168.0.4:3128
 export https_proxy=http://192.168.0.4:3128
-
-alias grep='grep --exclude=tags'
