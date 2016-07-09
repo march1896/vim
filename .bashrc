@@ -26,5 +26,5 @@ alias k2setup='cd $OWTROOT/k2setup/src'
 alias k2bld='cd $OWTROOT/k2bld/src'
 alias k2client='cd $OWTROOT/k2client/src'
 
-export http_proxy=http://192.168.0.4:3128
-export https_proxy=http://192.168.0.4:3128
+# User specific aliases and functions
+alias sshdev='ssh jintan@dev.owtware.com -p 7022'

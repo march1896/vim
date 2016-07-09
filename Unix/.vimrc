@@ -22,6 +22,7 @@ Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'altercation/vim-colors-solarized'
 
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
@@ -112,7 +113,8 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
+" colorscheme desert
+colorscheme solarized
 set background=dark
 
 " Set cursor line
@@ -442,12 +444,15 @@ let g:ctrlp_root_markers = ['tags']
 
 " au FileType javascript call JavaScriptFold()
 
-" pymode 
+" pymode
 let g:pymode = 1
 let g:pymode_indent = 0
 let g:pymode_folding = 1
 " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+" close python mode Regenerate repo cache
+let g:pymode_rope = 0
+let g:pymode_rope_lookup_project = 0
 
 let g:pymode_doc = 0
 " TODO: HACK
