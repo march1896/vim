@@ -16,15 +16,20 @@ export OWTROOT=~/code
 export KWEB=$OWTROOT/k2web/src/web/
 export KHOST=$OWTROOT/k2host/src/
 export KLIB=$OWTROOT/k2lib/src/
+export KSETUP=$OWTROOT/k2setup/src/
 export KDB=$OWTROOT/k2db/src/
-export KBLD=$OWTROOT/k2bld/
+export KBLD=$OWTROOT/k2bld/src/
+export KCLIENT=$OWTROOT/k2client/src/
 
-alias k2web='cd $OWTROOT/k2web/src/web'
-alias k2host='cd $OWTROOT/k2host/src'
-alias k2lib='cd $OWTROOT/k2lib/src'
-alias k2setup='cd $OWTROOT/k2setup/src'
-alias k2bld='cd $OWTROOT/k2bld/src'
-alias k2client='cd $OWTROOT/k2client/src'
+alias k2web='cd $KWEB'
+alias k2host='cd $KHOST'
+alias k2lib='cd $KLIB'
+alias k2setup='cd $KSETUP'
+alias k2bld='cd $KBLD'
+alias k2client='cd $KCLIENT'
+
+export FX=$KCLIENT/fxsync/
+alias k2fx='cd $FX'
 
 export http_proxy=http://192.168.0.4:3128
 export https_proxy=http://192.168.0.4:3128
