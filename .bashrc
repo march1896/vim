@@ -31,5 +31,5 @@ alias k2client='cd $KCLIENT'
 export FX=$KCLIENT/fxsync/
 alias k2fx='cd $FX'
 
-export http_proxy=http://192.168.0.4:3128
-export https_proxy=http://192.168.0.4:3128
+# export http_proxy=http://192.168.0.4:3128
+# export https_proxy=http://192.168.0.4:3128

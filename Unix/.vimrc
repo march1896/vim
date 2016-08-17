@@ -113,7 +113,7 @@ set tm=500
 syntax enable
 
 colorscheme desert
-set background=dark
+" set background=dark
 
 " Set cursor line
 set cursorline
@@ -319,6 +319,8 @@ map <leader>p :cp<cr>
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+map <leader>xx :source ~/.vimrc<cr>
+
 " Shortcuts using <leader>
 map <leader>sn ]s
 map <leader>sp [s
@@ -442,7 +444,7 @@ let g:ctrlp_root_markers = ['tags']
 
 " au FileType javascript call JavaScriptFold()
 
-" pymode 
+" pymode
 let g:pymode = 1
 let g:pymode_indent = 0
 let g:pymode_folding = 1
