@@ -12,6 +12,8 @@ fi
 
 PS1='\u@\H:\w\$ '
 
+alias dirs="dirs -v"
+
 export OWTROOT=~/code
 export KWEB=$OWTROOT/k2web/src/web/
 export KHOST=$OWTROOT/k2host/src/
