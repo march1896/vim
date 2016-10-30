@@ -113,9 +113,8 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-" colorscheme desert
-colorscheme solarized
-set background=dark
+colorscheme desert
+" set background=dark
 
 " Set cursor line
 set cursorline
@@ -320,6 +319,8 @@ map <leader>p :cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
+
+map <leader>xx :source ~/.vimrc<cr>
 
 " Shortcuts using <leader>
 map <leader>sn ]s
