@@ -16,12 +16,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
 Plugin 'altercation/vim-colors-solarized'
 
 " Plugin 'jlanzarotta/bufexplorer'
@@ -113,7 +113,7 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
+" colorscheme desert
 " set background=dark
 
 " Set cursor line
@@ -444,6 +444,9 @@ nmap <leader>nf :NERDTreeFind<cr>
 let g:ctrlp_root_markers = ['tags']
 
 " au FileType javascript call JavaScriptFold()
+
+" markdown
+let g:vim_markdown_fenced_languages = ['csharp=cs']
 
 " pymode
 let g:pymode = 1

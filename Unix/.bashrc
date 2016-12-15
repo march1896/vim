@@ -20,7 +20,7 @@ export KHOST=$OWTROOT/k2host/src/
 export KLIB=$OWTROOT/k2lib/src/
 export KSETUP=$OWTROOT/k2setup/src/
 export KDB=$OWTROOT/k2db/src/
-export KBLD=$OWTROOT/k2bld/src/
+export KBLD=$OWTROOT/k2bld/
 export KCLIENT=$OWTROOT/k2client/src/
 
 alias k2web='cd $KWEB'
