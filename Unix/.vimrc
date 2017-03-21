@@ -16,7 +16,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
@@ -24,6 +23,7 @@ Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 
+" Plugin 'plasticboy/vim-markdown'
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
 
