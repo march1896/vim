@@ -1,5 +1,6 @@
 #!/bin/sh
 ln -s -f $(pwd)/.bashrc ~/.bashrc
+ln -s -f $(pwd)/.profile ~/.profile
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
 ln -s -f $(pwd)/.inputrc ~/.inputrc
 ln -s -f $(pwd)/.pylintrc ~/.pylintrc
