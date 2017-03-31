@@ -22,6 +22,7 @@ Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'neovimhaskell/haskell-vim'
 
 " Plugin 'plasticboy/vim-markdown'
 " Plugin 'jlanzarotta/bufexplorer'
