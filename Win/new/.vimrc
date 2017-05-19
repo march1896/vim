@@ -4,6 +4,8 @@ filetype plugin indent on    " required
 " enable ctrl+c/ctrl+v on windows
 if has("win32")
   source $VIMRUNTIME/mswin.vim
+  unmap <C-Y>
+  iunmap <C-Y>
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,6 +111,9 @@ if has("gui_running")
   winpos 10 0
   set lines=60
   set columns=220
+  
+  :set guioptions-=r  "remove right-hand scroll bar
+  :set guioptions-=L  "remove left-hand scroll bar
 
   set t_Co=256
   set guitablabel=%M\ %t
