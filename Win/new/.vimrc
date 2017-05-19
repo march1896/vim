@@ -85,14 +85,6 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
-set background=dark
-
-" Set cursor line
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
-hi LineNr ctermfg=grey
-
 " Set extra options when running in GUI mode
 if has("gui_running")
   " Don't show quick access bar
@@ -100,8 +92,10 @@ if has("gui_running")
 
   " Don't show menu bar
   set guioptions-=m
-
   set guioptions+=e
+  
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 
   " Set cursor line
   set cursorline
@@ -112,11 +106,13 @@ if has("gui_running")
   set lines=60
   set columns=220
   
-  :set guioptions-=r  "remove right-hand scroll bar
-  :set guioptions-=L  "remove left-hand scroll bar
-
   set t_Co=256
   set guitablabel=%M\ %t
+else
+  " Set cursor line
+  set cursorline
+  hi CursorLine term=bold cterm=bold guibg=Grey40
+  hi LineNr ctermfg=grey
 endif
 
 
@@ -154,10 +150,6 @@ set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -445,3 +437,15 @@ else
   " shiftwidth=4
   " to 2
 endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Per-project settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized
+" set background=dark
+
+" 1 tab == 4 spaces
+" set shiftwidth=2
+" set tabstop=2
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
