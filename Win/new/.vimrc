@@ -424,20 +424,24 @@ let g:ctrlp_root_markers = ['tags']
 let g:vim_markdown_fenced_languages = ['csharp=cs']
 
 " pymode
-let g:pymode = 1
-let g:pymode_indent = 0
-let g:pymode_folding = 1
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
-" close python mode Regenerate repo cache
-let g:pymode_rope = 0
-let g:pymode_rope_lookup_project = 0
+if has("win32")
+  let g:pymode = 0
+else
+  let g:pymode = 1
+  let g:pymode_indent = 0
+  let g:pymode_folding = 1
+  " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+  let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+  " close python mode Regenerate repo cache
+  let g:pymode_rope = 0
+  let g:pymode_rope_lookup_project = 0
 
-let g:pymode_doc = 0
-" TODO: HACK
-" let g:pymode_indent = 0
-" change ~/.vim/bundle/pymode/after/indent/python.vim
-" tabstop=4
-" softtabstop=4
-" shiftwidth=4
-" to 2
+  let g:pymode_doc = 0
+  " TODO: HACK
+  " let g:pymode_indent = 0
+  " change ~/.vim/bundle/pymode/after/indent/python.vim
+  " tabstop=4
+  " softtabstop=4
+  " shiftwidth=4
+  " to 2
+endif
