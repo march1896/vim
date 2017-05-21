@@ -35,6 +35,8 @@ filetype plugin indent on    " required
 " enable ctrl+c/ctrl+v on windows
 if has("win32")
   source $VIMRUNTIME/mswin.vim
+  unmap <C-Y>
+  iunmap <C-Y>
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -114,14 +116,6 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-" colorscheme desert
-" set background=dark
-
-" Set cursor line
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
-hi LineNr ctermfg=grey
-
 " Set extra options when running in GUI mode
 if has("gui_running")
   " Don't show quick access bar
@@ -129,8 +123,10 @@ if has("gui_running")
 
   " Don't show menu bar
   set guioptions-=m
-
   set guioptions+=e
+  
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 
   " Set cursor line
   set cursorline
@@ -140,9 +136,14 @@ if has("gui_running")
   winpos 10 0
   set lines=60
   set columns=220
-
+  
   set t_Co=256
   set guitablabel=%M\ %t
+else
+  " Set cursor line
+  set cursorline
+  hi CursorLine term=bold cterm=bold guibg=Grey40
+  hi LineNr ctermfg=grey
 endif
 
 
@@ -180,10 +181,6 @@ set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -449,21 +446,40 @@ let g:ctrlp_root_markers = ['tags']
 " markdown
 let g:vim_markdown_fenced_languages = ['csharp=cs']
 
-" pymode
-let g:pymode = 1
-let g:pymode_indent = 0
-let g:pymode_folding = 1
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
-" close python mode Regenerate repo cache
-let g:pymode_rope = 0
-let g:pymode_rope_lookup_project = 0
+" Ag
+" g:ag_prg="ag --vimgrep --smart-case --path-to-ignore ~/.agignore"
 
-let g:pymode_doc = 0
-" TODO: HACK
-" let g:pymode_indent = 0
-" change ~/.vim/bundle/pymode/after/indent/python.vim
-" tabstop=4
-" softtabstop=4
-" shiftwidth=4
-" to 2
+" pymode
+if has("win32")
+  let g:pymode = 0
+else
+  let g:pymode = 1
+  let g:pymode_indent = 0
+  let g:pymode_folding = 1
+  " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+  let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+  " close python mode Regenerate repo cache
+  let g:pymode_rope = 0
+  let g:pymode_rope_lookup_project = 0
+
+  let g:pymode_doc = 0
+  " TODO: HACK
+  " let g:pymode_indent = 0
+  " change ~/.vim/bundle/pymode/after/indent/python.vim
+  " tabstop=4
+  " softtabstop=4
+  " shiftwidth=4
+  " to 2
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Per-project settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized
+" set background=dark
+
+" 1 tab == 4 spaces
+" set shiftwidth=2
+" set tabstop=2
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

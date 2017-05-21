@@ -415,6 +415,9 @@ let g:ctrlp_root_markers = ['tags']
 " markdown
 let g:vim_markdown_fenced_languages = ['csharp=cs']
 
+" Ag
+" g:ag_prg="ag --vimgrep --smart-case --path-to-ignore ~/.agignore"
+
 " pymode
 if has("win32")
   let g:pymode = 0
