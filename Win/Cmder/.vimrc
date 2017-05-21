@@ -19,8 +19,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
-" Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
+Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'neovimhaskell/haskell-vim'
 
+" Plugin 'plasticboy/vim-markdown'
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
 
@@ -78,7 +82,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -112,13 +116,6 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
-set background=dark
-
-" Set cursor line 
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
-
 " Set extra options when running in GUI mode
 if has("gui_running")
   " Don't show quick access bar
@@ -126,10 +123,12 @@ if has("gui_running")
 
   " Don't show menu bar
   set guioptions-=m
-
   set guioptions+=e
+  
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 
-  " Set cursor line 
+  " Set cursor line
   set cursorline
   highlight CursorLine guibg=Grey20
 
@@ -137,17 +136,14 @@ if has("gui_running")
   winpos 10 0
   set lines=60
   set columns=220
-
+  
   set t_Co=256
   set guitablabel=%M\ %t
-
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
-  elseif has("gui_win32")
-    set guifont=Consolas:h10:cANSI
-  endif
+else
+  " Set cursor line
+  set cursorline
+  hi CursorLine term=bold cterm=bold guibg=Grey40
+  hi LineNr ctermfg=grey
 endif
 
 
@@ -185,10 +181,6 @@ set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -326,6 +318,8 @@ map <leader>p :cp<cr>
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+map <leader>xx :source ~/.vimrc<cr>
+
 " Shortcuts using <leader>
 map <leader>sn ]s
 map <leader>sp [s
@@ -422,6 +416,9 @@ function! GotoJump()
   endif
 endfunction
 
+" No autoformating when paste
+set pastetoggle=<F2>
+
 " Format json
 map <Leader>j !python -m json.tool<CR>
 
@@ -441,22 +438,48 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 nmap <leader>nt :NERDTree<cr>
 nmap <leader>nf :NERDTreeFind<cr>
 
-" => DoxygenToolkit
-" let g:DoxygenToolkit_briefTag_pre="@Synopsis  " 
-" let g:DoxygenToolkit_paramTag_pre="@param " 
-" let g:DoxygenToolkit_returnTag="@returns   " 
-" let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
-" let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
-let g:DoxygenToolkit_authorName="Jin"
-" let g:DoxygenToolkit_licenseTag="My own license";
-
 " CtrlP root folder
 let g:ctrlp_root_markers = ['tags']
 
 " au FileType javascript call JavaScriptFold()
 
-" pymode 
-let g:pymode_indent = 0
-let g:pymode_folding = 1
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
+" markdown
+let g:vim_markdown_fenced_languages = ['csharp=cs']
+
+" Ag
+" g:ag_prg="ag --vimgrep --smart-case --path-to-ignore ~/.agignore"
+
+" pymode
+if has("win32")
+  let g:pymode = 0
+else
+  let g:pymode = 1
+  let g:pymode_indent = 0
+  let g:pymode_folding = 1
+  " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+  let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+  " close python mode Regenerate repo cache
+  let g:pymode_rope = 0
+  let g:pymode_rope_lookup_project = 0
+
+  let g:pymode_doc = 0
+  " TODO: HACK
+  " let g:pymode_indent = 0
+  " change ~/.vim/bundle/pymode/after/indent/python.vim
+  " tabstop=4
+  " softtabstop=4
+  " shiftwidth=4
+  " to 2
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Per-project settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized
+" set background=dark
+
+" 1 tab == 4 spaces
+" set shiftwidth=2
+" set tabstop=2
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
