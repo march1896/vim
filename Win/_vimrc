@@ -1,45 +1,4 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'godlygeek/tabular'
-Plugin 'bling/vim-airline'
-" Plugin 'jlanzarotta/bufexplorer'
-Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
-
-" tool integration
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-fugitive'
-
-" enhanced highlight
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-" Plugin 'plasticboy/vim-markdown'
-
-" color scheme
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'sickill/vim-monokai'
-Plugin 'chriskempson/base16-vim'
-
-" language specfic
-Plugin 'klen/python-mode'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 " enable ctrl+c/ctrl+v on windows
@@ -125,37 +84,6 @@ set tm=500
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-  " Don't show quick access bar
-  set guioptions-=T
-
-  " Don't show menu bar
-  set guioptions-=m
-  set guioptions+=e
-
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
-
-  " Set cursor line
-  set cursorline
-  highlight CursorLine guibg=Grey20
-
-  " Set window position & size
-  winpos 10 0
-  set lines=60
-  set columns=220
-
-  set t_Co=256
-  set guitablabel=%M\ %t
-else
-  " Set cursor line
-  set cursorline
-  hi CursorLine term=bold cterm=bold guibg=Grey40
-  hi LineNr ctermfg=grey
-endif
-
 
 " Only cursor the current window
 augroup BgHighlight
@@ -250,17 +178,6 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" Format the status line # use airline plugin instead.
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -290,7 +207,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au FileType cpp,h,hpp,cxx,cc set iskeyword-=:
+au FileType cpp set iskeyword-=:
 au FileType py set iskeyword-=:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -435,70 +352,3 @@ set pastetoggle=<F2>
 
 " Format json
 map <Leader>j !python -m json.tool<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tag bar
-map <leader>tb :TagbarToggle<cr>
-
-" => NERD Tree
-"let g:NERDTreeWinPos="left"
-"let g:NERDTreeWinSize=40
-"let g:NERDTreeShowBookmarks=1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-nmap <leader>nt :NERDTree<cr>
-nmap <leader>nf :NERDTreeFind<cr>
-
-" CtrlP root folder
-let g:ctrlp_root_markers = ['tags']
-
-" au FileType javascript call JavaScriptFold()
-
-" markdown
-let g:vim_markdown_fenced_languages = ['csharp=cs']
-
-" Ag
-" g:ag_prg="ag --vimgrep --smart-case --path-to-ignore ~/.agignore"
-"  Dont jump to the first result automatically
-ca Ag Ag!
-
-" pymode
-let g:pymode = 1
-let g:pymode_indent = 0
-let g:pymode_folding = 1
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
-" close python mode Regenerate repo cache
-let g:pymode_rope = 0
-let g:pymode_rope_lookup_project = 0
-
-let g:pymode_doc = 0
-" TODO: HACK
-" let g:pymode_indent = 0
-" change ~/.vim/bundle/pymode/after/indent/python.vim
-" tabstop=4
-" softtabstop=4
-" shiftwidth=4
-" to 2
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Color scheme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:solarized_italic=0 " disable should be done before colorscheme command
-
-" https://chriskempson.github.io/base16/
-" colorscheme solarized
-" colorscheme base16-github
-colorscheme base16-monokai
-
-" colorscheme desert
-" set background=dark
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

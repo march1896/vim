@@ -16,17 +16,27 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'rking/ag.vim'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
-Plugin 'klen/python-mode'
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'neovimhaskell/haskell-vim'
-
-" Plugin 'plasticboy/vim-markdown'
 " Plugin 'jlanzarotta/bufexplorer'
 Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
+
+" tool integration
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-fugitive'
+
+" enhanced highlight
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'plasticboy/vim-markdown'
+
+" color scheme
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'sickill/vim-monokai'
+Plugin 'chriskempson/base16-vim'
+
+" language specfic
+Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -124,7 +134,7 @@ if has("gui_running")
   " Don't show menu bar
   set guioptions-=m
   set guioptions+=e
-  
+
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
 
@@ -136,7 +146,7 @@ if has("gui_running")
   winpos 10 0
   set lines=60
   set columns=220
-  
+
   set t_Co=256
   set guitablabel=%M\ %t
 else
@@ -279,6 +289,10 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au FileType cpp,h,hpp,cxx,cc set iskeyword-=:
+au FileType py set iskeyword-=:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
@@ -448,38 +462,43 @@ let g:vim_markdown_fenced_languages = ['csharp=cs']
 
 " Ag
 " g:ag_prg="ag --vimgrep --smart-case --path-to-ignore ~/.agignore"
+"  Dont jump to the first result automatically
+ca Ag Ag!
 
 " pymode
-if has("win32")
-  let g:pymode = 0
-else
-  let g:pymode = 1
-  let g:pymode_indent = 0
-  let g:pymode_folding = 1
-  " let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-  let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
-  " close python mode Regenerate repo cache
-  let g:pymode_rope = 0
-  let g:pymode_rope_lookup_project = 0
+let g:pymode = 1
+let g:pymode_indent = 0
+let g:pymode_folding = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+" close python mode Regenerate repo cache
+let g:pymode_rope = 0
+let g:pymode_rope_lookup_project = 0
 
-  let g:pymode_doc = 0
-  " TODO: HACK
-  " let g:pymode_indent = 0
-  " change ~/.vim/bundle/pymode/after/indent/python.vim
-  " tabstop=4
-  " softtabstop=4
-  " shiftwidth=4
-  " to 2
-endif
+let g:pymode_doc = 0
+" TODO: HACK
+" let g:pymode_indent = 0
+" change ~/.vim/bundle/pymode/after/indent/python.vim
+" tabstop=4
+" softtabstop=4
+" shiftwidth=4
+" to 2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Per-project settings
+" Color scheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme solarized
+let g:solarized_italic=0 " disable should be done before colorscheme command
+
+" https://chriskempson.github.io/base16/
+" colorscheme solarized
+" colorscheme base16-github
+colorscheme base16-monokai
+
+" colorscheme desert
 " set background=dark
 
 " 1 tab == 4 spaces
-" set shiftwidth=2
-" set tabstop=2
+set shiftwidth=4
+set tabstop=4
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
