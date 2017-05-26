@@ -294,7 +294,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cpp, set public/private/protected keyword indent
 set cindent
-set cinoptions=g-1
+set cinoptions=g0
 
 au FileType cpp set iskeyword-=:
 au FileType py set iskeyword-=:
