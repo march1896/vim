@@ -31,8 +31,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " Plugin 'plasticboy/vim-markdown'
 
 " color scheme
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'sickill/vim-monokai'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'sickill/vim-monokai'
 Plugin 'chriskempson/base16-vim'
 
 " language specfic
@@ -290,9 +290,14 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au FileType cpp,h,hpp,cxx,cc set iskeyword-=:
-au FileType py set iskeyword-=:
+" => Programming language specfic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cpp, set public/private/protected keyword indent
+set cindent
+set cinoptions=g-1
+
+au FileType cpp set iskeyword-=:
+au FileType py set iskeyword-=:
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
@@ -454,6 +459,14 @@ nmap <leader>nf :NERDTreeFind<cr>
 
 " CtrlP root folder
 let g:ctrlp_root_markers = ['tags']
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|PerfkitTestFW)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " au FileType javascript call JavaScriptFold()
 
@@ -491,9 +504,10 @@ let g:pymode_doc = 0
 let g:solarized_italic=0 " disable should be done before colorscheme command
 
 " https://chriskempson.github.io/base16/
-" colorscheme solarized
 " colorscheme base16-github
-colorscheme base16-monokai
+" colorscheme base16-monokai
+colorscheme base16-solarized-dark
+" colorscheme base16-tomorrow-night
 
 " colorscheme desert
 " set background=dark
