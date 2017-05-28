@@ -345,7 +345,6 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -357,8 +356,6 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -516,3 +513,9 @@ colorscheme base16-solarized-dark
 set shiftwidth=4
 set tabstop=4
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" include local configuration
+if filereadable(glob("$HOME/.vimrc.local")) 
+  source $HOME/.vimrc.local
+endif
+
