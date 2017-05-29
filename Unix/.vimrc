@@ -42,9 +42,10 @@ Plugin 'klen/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" enable ctrl+c/ctrl+v on windows
 if has("win32")
+  " enable ctrl+c/ctrl+v on windows
   source $VIMRUNTIME/mswin.vim
+  " use ctrl+y as scroll down oneline
   unmap <C-Y>
   iunmap <C-Y>
 endif
@@ -113,11 +114,23 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
+" Show line number
+set number
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" No autoformating when paste
+set pastetoggle=<F2>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,25 +148,40 @@ if has("gui_running")
   set guioptions-=m
   set guioptions+=e
 
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
+  " Don't show right-hand scroll bar
+  set guioptions-=r  
+  " Don't show left-hand scroll bar
+  set guioptions-=L  
 
   " Set cursor line
   set cursorline
   highlight CursorLine guibg=Grey20
 
   " Set window position & size
-  winpos 10 0
+  winpos 0 0
   set lines=60
   set columns=220
 
   set t_Co=256
   set guitablabel=%M\ %t
+
+  let g:solarized_italic=0 " disable should be done before colorscheme command
+  " Use base16 plugin to manage color scheme in gui mode.
+  " https://chriskempson.github.io/base16/
+  " colorscheme base16-github
+  " colorscheme base16-monokai
+  colorscheme base16-solarized-dark
+  " colorscheme base16-tomorrow-night
+
 else
   " Set cursor line
   set cursorline
   hi CursorLine term=bold cterm=bold guibg=Grey40
   hi LineNr ctermfg=grey
+
+  " let g:solarized_termcolors=256
+  " set background=dark
+  " colorscheme solarized
 endif
 
 
@@ -163,15 +191,6 @@ augroup BgHighlight
   autocmd WinEnter * set cul
   autocmd WinLeave * set nocul
 augroup END
-
-" Show line number
-set number
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -357,6 +376,10 @@ map <leader>q :e ~/buffer<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Format json
+map <Leader>j !python -m json.tool<CR>
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -432,11 +455,6 @@ function! GotoJump()
   endif
 endfunction
 
-" No autoformating when paste
-set pastetoggle=<F2>
-
-" Format json
-map <Leader>j !python -m json.tool<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin mappings
@@ -493,21 +511,6 @@ let g:pymode_doc = 0
 " softtabstop=4
 " shiftwidth=4
 " to 2
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Color scheme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:solarized_italic=0 " disable should be done before colorscheme command
-
-" https://chriskempson.github.io/base16/
-" colorscheme base16-github
-" colorscheme base16-monokai
-colorscheme base16-solarized-dark
-" colorscheme base16-tomorrow-night
-
-" colorscheme desert
-" set background=dark
 
 " 1 tab == 4 spaces
 set shiftwidth=4
