@@ -1,5 +1,12 @@
 #!/bin/sh
-ln -s -f $(pwd)/.bashrc ~/.bashrc
+OS=$(lsb_release -si)
+ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+VER=$(lsb_release -sr)
+if [ ${OS} = 'Ubuntu' ]; then
+    echo 'Ubuntu use system default .bashrc'
+else
+    ln -s -f $(pwd)/.bashrc ~/.bashrc
+fi
 ln -s -f $(pwd)/.profile ~/.profile
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
 ln -s -f $(pwd)/.agignore ~/.agignore
