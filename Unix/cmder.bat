@@ -10,8 +10,9 @@ PUSHD %HOME%
 IF EXIST .vimrc DEL .vimrc
 mklink .vimrc %~dp0\.vimrc
 
-IF EXIST .vimrc.local  DEL .vimrc.local
-mklink .vimrc.local %~dp0\.vimrc.local
+REM .vimrc.local is just a reference on depot.
+REM IF EXIST .vimrc.local  DEL .vimrc.local
+robocopy .vimrc.local %~dp0\.vimrc.local /E /XC /XN /XO
 
 IF EXIST .gitconfig  DEL .gitconfig
 mklink .gitconfig %~dp0\.gitconfig

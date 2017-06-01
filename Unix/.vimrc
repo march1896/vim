@@ -492,6 +492,8 @@ let g:vim_markdown_fenced_languages = ['csharp=cs']
 " g:ag_prg="ag --vimgrep --smart-case --path-to-ignore ~/.agignore"
 "  Dont jump to the first result automatically
 ca Ag Ag!
+let g:ag_highlight=1
+let g:ag_format="%f:%l:%m"
 
 " pymode
 let g:pymode = 1
