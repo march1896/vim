@@ -1,0 +1,20 @@
+set P4ROOT=~/Perforce/dev
+set SWROOT=${P4ROOT}/sw 
+set HWROOT=${P4ROOT}/hw 
+  
+set DRIVER_ROOT=${SWROOT}/dev/gpu_drv/dev_a/drivers 
+set NVSDK_ROOT=${SWROOT}/dev/gpu_drv/dev_a/sdk/nvidia/inc 
+set PERFWORKS_ROOT=${SWROOT}/devtools/Agora/Dev/Perfkit 
+set PERFWORKS_OUT=${PERFWORKS_ROOT}/Built/Bin 
+  
+set PFBUILDSPEC=Perfkit-Debug-internal 
+set WGLSPEC=linux-desktop-glibc_2_11_3-glx-amd64-x64
+set ANDROINDSPEC=android-generic-L-egl-t132-a64
+
+alias g2perf=cd ${PERFWORKS_ROOT}/Shared 
+alias g2driver=cd ${DRIVER_ROOT} 
+alias g2nvsdk=cd ${NVSDK_ROOT} 
+alias g2wglout=cd ${PERFWORKS_OUT}/${PFBUILDSPEC}/target/${WGLSPEC}/PerfWorks/bin/x64/ 
+alias g2androidout=cd ${PERFWORKS_OUT}/${PFBUILDSPEC}/target/${ANDROINDSPEC}/PerfWorks/bin/x64/ 
+alias g2wgltest=cd ${PERFWORKS_OUT}/${PFBUILDSPEC}-test/host/${WGLSPEC}/ 
+alias g2androidtest=cd ${PERFWORKS_OUT}/${PFBUILDSPEC}-test/host/${ANDROINDSPEC}/
