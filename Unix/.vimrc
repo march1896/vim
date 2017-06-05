@@ -123,6 +123,9 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+" Don't blink cursor
+" set gcr=a:block-blinkon0
+
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -132,6 +135,8 @@ set tm=500
 " No autoformating when paste
 set pastetoggle=<F2>
 
+" sudo in non-sudo mode
+cmap w!! w !sudo tee % >/dev/null
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -278,7 +283,6 @@ set laststatus=2
 
 " Format the status line # use airline plugin instead.
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -510,15 +514,15 @@ let g:pymode_doc = 0
 " let g:pymode_indent = 0
 " change ~/.vim/bundle/pymode/after/indent/python.vim
 " tabstop=4
-" softtabstop=4
 " shiftwidth=4
 " to 2
 
 " 1 tab == 4 spaces
-set shiftwidth=4
 set tabstop=4
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set softtabstop=4
+set shiftwidth=4
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " include local configuration
 if filereadable(glob("$HOME/.vimrc.local")) 
   source $HOME/.vimrc.local
