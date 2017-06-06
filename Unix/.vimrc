@@ -177,6 +177,18 @@ if has("gui_running")
   " colorscheme base16-monokai
   colorscheme base16-solarized-dark
   " colorscheme base16-tomorrow-night
+  let s:cs_candidates = [
+              \ 'base16-3024',
+              \ 'base16-github',
+              \ 'base16-monokai',
+              \ 'base16-solarized-dark',
+              \ 'base16-solarized-light',
+              \ 'base16-tomorrow-night' 
+              \ ]
+  func! RandomColorScheme()
+    let idx=str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) % len(s:cs_candidates)
+    execute 'colorscheme '.s:cs_candidates[idx]
+  endfunc
 
 else
   " Set cursor line
