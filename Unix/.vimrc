@@ -154,9 +154,9 @@ if has("gui_running")
   set guioptions+=e
 
   " Don't show right-hand scroll bar
-  set guioptions-=r  
+  set guioptions-=r
   " Don't show left-hand scroll bar
-  set guioptions-=L  
+  set guioptions-=L
 
   " Set cursor line
   set cursorline
@@ -195,6 +195,8 @@ else
   set cursorline
   hi CursorLine term=bold cterm=bold guibg=Grey40
   hi LineNr ctermfg=grey
+
+  set t_Co=256
 
   " let g:solarized_termcolors=256
   " set background=dark
@@ -521,7 +523,7 @@ set shiftwidth=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " include local configuration
-if filereadable(glob("$HOME/.vimrc.local")) 
+if filereadable(glob("$HOME/.vimrc.local"))
   source $HOME/.vimrc.local
 endif
 
