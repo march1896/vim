@@ -7,7 +7,6 @@ if [ ${OS} = 'Ubuntu' ]; then
 else
     ln -s -f $(pwd)/.bashrc ~/.bashrc
 fi
-ln -s -f $(pwd)/.profile ~/.profile
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
 ln -s -f $(pwd)/.agignore ~/.agignore
 ln -s -f $(pwd)/.inputrc ~/.inputrc
