@@ -17,8 +17,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'bling/vim-airline'
-" Plugin 'jlanzarotta/bufexplorer'
-Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
+Plugin 'jlanzarotta/bufexplorer'
+" Plugin 'https://github.com/march1896/bufexplorer.git'  " vim 7.3 bug.
 
 " tool integration
 Plugin 'rking/ag.vim'
