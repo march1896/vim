@@ -23,6 +23,7 @@ Plugin 'jlanzarotta/bufexplorer'
 " tool integration
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'nfvs/vim-perforce'
 
 " enhanced highlight
 Plugin 'neovimhaskell/haskell-vim'
@@ -183,7 +184,7 @@ if has("gui_running")
               \ 'base16-monokai',
               \ 'base16-solarized-dark',
               \ 'base16-solarized-light',
-              \ 'base16-tomorrow-night' 
+              \ 'base16-tomorrow-night'
               \ ]
   func! RandomColorScheme()
     let idx=str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) % len(s:cs_candidates)
