@@ -32,7 +32,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " Plugin 'plasticboy/vim-markdown'
 
 " color scheme
-" Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 " Plugin 'sickill/vim-monokai'
 Plugin 'chriskempson/base16-vim'
 
@@ -192,16 +192,18 @@ if has("gui_running")
   endfunc
 
 else
-  " Set cursor line
-  set cursorline
-  hi CursorLine term=bold cterm=bold guibg=Grey40
-  hi LineNr ctermfg=grey
-
   set t_Co=256
 
-  " let g:solarized_termcolors=256
-  " set background=dark
-  " colorscheme solarized
+  set cursorline
+  hi CursorLine term=bold cterm=bold guibg=Grey40
+
+  " base16 for terminal does not work.
+  "let base16colorspace=256
+  "colorscheme base16-solarized-dark
+
+  let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
 endif
 
 

@@ -13,6 +13,7 @@ ln -s -f $(pwd)/.agignore ~/.agignore
 ln -s -f $(pwd)/.inputrc ~/.inputrc
 ln -s -f $(pwd)/.pylintrc ~/.pylintrc
 ln -s -f $(pwd)/.tmux.conf ~/.tmux.conf
+ln -s -f $(pwd)/.bash_aliases ~/.bash_aliases
 ln -s -f $(pwd)/.vimrc ~/.vimrc
 
 # for tmux
