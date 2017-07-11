@@ -201,9 +201,12 @@ else
   "let base16colorspace=256
   "colorscheme base16-solarized-dark
 
+  let g:solarized_termtrans = 1
   let g:solarized_termcolors=256
   set background=dark
   colorscheme solarized
+
+  "colorscheme monokai
 endif
 
 
