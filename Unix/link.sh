@@ -12,6 +12,7 @@ ln -s -f $(pwd)/.vimrc ~/.vimrc
 ln -s -f $(pwd)/.tmux.conf ~/.tmux.conf
 ln -s -f $(pwd)/.bash_profile ~/.bash_profile # for tmux
 ln -s -f $(pwd)/.bash_aliases ~/.bash_aliases
+ln -s -f $(pwd)/.aliases ~/.aliases
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
 ln -s -f $(pwd)/.agignore ~/.agignore
 ln -s -f $(pwd)/.inputrc ~/.inputrc
