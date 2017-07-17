@@ -305,6 +305,10 @@ set laststatus=2
 " Format the status line # use airline plugin instead.
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
+" For terminal use, first down power line supported font: https://github.com/powerline/fonts
+let g:airline_powerline_fonts = 1
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
