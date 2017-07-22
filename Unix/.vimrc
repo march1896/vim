@@ -34,10 +34,15 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " color scheme
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'sickill/vim-monokai'
-Plugin 'chriskempson/base16-vim'
 
 " language specfic
+if has("win32")
+Plugin 'chriskempson/base16-vim'
 Plugin 'klen/python-mode'
+else
+Plugin 'scrooloose/syntastic'
+Plugin 'valloric/youcompleteme'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -347,21 +352,6 @@ set cinoptions=g0
 au FileType cpp set iskeyword-=:
 au FileType py set iskeyword-=:
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimgrep searching and cope displaying
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
-
-" Open vimgrep and put the cursor in the right position
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-
-" Vimgreps in the current file
-map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -382,12 +372,6 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
 
 " Format json
 map <Leader>j !python -m json.tool<CR>
@@ -508,23 +492,42 @@ ca Ag Ag!
 let g:ag_highlight=1
 let g:ag_format="%f:%l:%m"
 
-" pymode
-let g:pymode = 1
-let g:pymode_indent = 0
-let g:pymode_folding = 1
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
-" close python mode Regenerate repo cache
-let g:pymode_rope = 0
-let g:pymode_rope_lookup_project = 0
+if has("win32")
+" python-mode
+"let g:pymode = 1
+"let g:pymode_indent = 0
+"let g:pymode_folding = 1
+"" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+"let g:pymode_lint_checkers = ['pyflakes', 'mccabe' ]
+"" close python mode Regenerate repo cache
+"let g:pymode_rope = 0
+"let g:pymode_rope_lookup_project = 0
 
-let g:pymode_doc = 0
-" TODO: HACK
-" let g:pymode_indent = 0
-" change ~/.vim/bundle/pymode/after/indent/python.vim
-" tabstop=4
-" shiftwidth=4
-" to 2
+"let g:pymode_doc = 0
+"" TODO: HACK
+"" let g:pymode_indent = 0
+"" change ~/.vim/bundle/pymode/after/indent/python.vim
+"" tabstop=4
+"" shiftwidth=4
+"" to 2
+else
+" syntastic
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+" YouCompleteMe
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+
+" let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_confirm_extra_conf = 1
+"
+" Don't know how to config precedence of compile_commands.json and .ycm_extra_conf.py
+" Workaround is to ln .ycm_extra_conf.py to $HOME
+
+endif
+
+" Plugin end
+
 
 " 1 tab == 4 spaces
 set tabstop=4

@@ -19,5 +19,9 @@ ln -s -f $(pwd)/.inputrc ~/.inputrc
 ln -s -f $(pwd)/.pylintrc ~/.pylintrc
 ln -s -f $(pwd)/.gdbinit ~/.gdbinit
 
+if [ -f ~/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py ]; then
+    ln -s -f ~/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py ~/.ycm_extra_conf
+fi
+
 # .vimrc.local is just a reference.
 cp --no-clobber $(pwd)/.vimrc.local ~/.vimrc.local
