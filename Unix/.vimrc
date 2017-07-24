@@ -311,7 +311,10 @@ set laststatus=2
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " For terminal use, first down power line supported font: https://github.com/powerline/fonts
+if !has("win32")
 let g:airline_powerline_fonts = 1
+endif
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
