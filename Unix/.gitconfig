@@ -8,3 +8,5 @@
 [user]
   email = march1896@gmail.com
   name = Jin Tan
+[push]
+	default = simple
