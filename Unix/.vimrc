@@ -316,12 +316,11 @@ let g:airline_powerline_fonts = 1
 endif
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
-map 0 ^
+" map 0 ^
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -354,7 +353,8 @@ set cinoptions=g0
 
 au FileType cpp set iskeyword-=:
 au FileType py set iskeyword-=:
-
+au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
